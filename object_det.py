@@ -5,7 +5,7 @@ import cv2
 model = YOLO("yolo11m.pt")
 
 # Open video file
-video_path = "v1.MOV"
+video_path = "v2.mp4"
 cap = cv2.VideoCapture(video_path)
 
 # Get video properties
