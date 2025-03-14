@@ -9,7 +9,7 @@ import numpy as np
 
 # Step 4: Set paths
 model_path = "best.pt"  # Update to the local model path
-video_path = "second.mp4"  # Update to the local video file path
+video_path = "v2.mp4"  # Update to the local video file path
 output_path = "output_detection.mp4"  # Local output path
 
 
