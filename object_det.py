@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 
 # Load pretrained YOLOv8 model
-model = YOLO("yolo11m.pt")
+model = YOLO("best.pt")
 
 # Open video file
 video_path = "v2.mp4"
