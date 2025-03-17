@@ -36,8 +36,8 @@ image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 predictor.set_image(image_rgb)
 masks, _, _ = predictor.predict(box=bounding_box[None, :], multimask_output=False)
 
-# Save mask
-np.savez("saved_mask.npz", mask=masks[0])
+# # Save mask
+# np.savez("saved_mask.npz", mask=masks[0])
 
 
 # Load bounding box (optional)

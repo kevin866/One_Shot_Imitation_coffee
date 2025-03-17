@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 
 # Load pretrained YOLOv8 model
-model = YOLO("best.pt")
+model = YOLO("models/best3/weights/best.pt")
 
 # Open video file
 video_path = "v2.mp4"
@@ -24,10 +24,12 @@ while cap.isOpened():
 
     # Run YOLOv8 inference
     results = model(frame)
+    
 
     # Draw detections
     for result in results:
         for box in result.boxes:
+            print(box)
             x1, y1, x2, y2 = map(int, box.xyxy[0])
             confidence = box.conf[0]
             class_id = int(box.cls[0])
@@ -37,7 +39,7 @@ while cap.isOpened():
 
     out.write(frame)
     cv2.imshow("YOLOv8 Detection", frame)
-
+    break
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 

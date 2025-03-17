@@ -1,0 +1,5 @@
+train: /Users/kangwang/Documents/GitHub/RobotLearning_FinalProj/dataset/images/train
+val: /Users/kangwang/Documents/GitHub/RobotLearning_FinalProj/dataset/images/val
+
+nc: 3
+names: ['lid', 'start', 'coffee_bean']

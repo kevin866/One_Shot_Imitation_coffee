@@ -13,7 +13,7 @@ sam = sam_model_registry[MODEL_TYPE](checkpoint=MODEL_CHECKPOINT).to(device)
 predictor = SamPredictor(sam)
 
 # 2. Load an image
-image_path = "coffee_maker.jpg"  # Change to your image file
+image_path = "open.png"  # Change to your image file
 image = cv2.imread(image_path)
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Convert OpenCV BGR to RGB
 
@@ -21,6 +21,9 @@ predictor.set_image(image)
 
 # 3. Define a point (manually selected, e.g., on the coffee lid)
 input_point = np.array([[400, 150]])  # X, Y coordinate of the object
+input_point = np.array([[642, 220]])  # X, Y coordinate of the object
+lid_bbox = np.array([191, 111, 526, 219])
+
 input_label = np.array([1])  # 1 = foreground
 
 # 4. Get segmentation mask from SAM
