@@ -2,10 +2,10 @@ from ultralytics import YOLO
 import cv2
 
 # Load pretrained YOLOv8 model
-model = YOLO("models/best2/weights/best.pt")
+model = YOLO("models/best4_multi_label/weights/best.pt")
 
 # Load an image
-image_path = "dataset/images/train/0_coffee_bean.png"  # Change to your image path
+image_path = "dataset/images/train/0.png"  # Change to your image path
 frame = cv2.imread(image_path)
 
 # Run YOLOv8 inference
