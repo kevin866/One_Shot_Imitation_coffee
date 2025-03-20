@@ -44,4 +44,5 @@ Note: If you're using a different resolution or video speed compared to the orig
 
 - **`movement_threshold`**: To detect when objects are moving.
 - **`glittering_threshold`**: To prevent misclassifications from affecting the movement events.
+- **`start_button_threshold`**: To detect when the thumb is pressing the start button
 

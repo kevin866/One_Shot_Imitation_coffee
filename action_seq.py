@@ -23,9 +23,13 @@ height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 # Video writer
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
 out = cv2.VideoWriter(output_video_path, fourcc, fps, (width, height))
-pre_actions = ["Placing the paper filter inside the coffee machine", 
-           "Grabing the ground coffee and pouring into the coffee machine", 
-           "Closing the coffee machine top"]
+
+pre_actions=["Placing paper filter", 
+             "paper filter placed",
+             "Adding ground coffee", 
+             "ground coffee added",
+             "Closing the lid",
+             "lid closed"]
 frame_count = 0
 action_num = 0
 current_text = ""  # Variable to store the current text to display
@@ -42,20 +46,24 @@ while cap.isOpened():
     if action_num < len(start_times):
         if current_time >= start_times[action_num] and current_time <= end_times[action_num]:
             if current_time == start_times[action_num]:
-                current_text = f"Action {pre_actions[action_num]} started at time {current_time}"
-                act_seq.append(current_text)
+                current_text = f"{pre_actions[action_num*2]}"
+                if len(act_seq)==0 or act_seq[-1]!=current_text:
+                    act_seq.append(current_text)
             if current_time == end_times[action_num]:
-                current_text = f"Action {pre_actions[action_num]} ended at time {current_time}"
-                act_seq.append(current_text)
+                current_text = f"{pre_actions[action_num*2+1]}"
+                if act_seq[-1]!=current_text:
+                    act_seq.append(current_text)
                 action_num += 1  # Move to next action
 
     elif current_time>stime[0] and current_time<stime[-1]:
-        current_text = "Press the start button at time {current_time}"
-        act_seq.append(current_text)
+        current_text = "Press the start button"
+        if act_seq[-1]!=current_text:
+            act_seq.append(current_text)
         end_time = 1+current_time
     elif current_time>=stime[-1]:
         current_text = "Fnished!"
-        act_seq.append(current_text)
+        if act_seq[-1]!=current_text:
+            act_seq.append(current_text)
 
 
 

@@ -175,8 +175,8 @@ while cap.isOpened():
 
             if obj_id == 1 and thumb_pos!=0:
                 # we are assuming that the user is using thumb to press the start button
-                th_dis = calculate_distance(thumb_pos, center_position)
-                if th_dis<30:
+                start_button_threshold = calculate_distance(thumb_pos, center_position)
+                if start_button_threshold<30:
                     stime.append(current_time)
     frame_count+=1
 
